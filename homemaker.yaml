@@ -1,0 +1,109 @@
+macros:
+  download:
+    prefix: ["wget", "-O"]
+
+  package:
+    prefix: ["sudo", "apt-get", "install", "-y"]
+
+tasks:
+  ######################################################
+  # Packages
+  ######################################################
+  dev-essential:
+    deps:
+      - "nvim"
+      - "bashrc-handler"
+    cmds:
+      - - "@package"
+        - "git"
+        - "ranger"
+
+  dev-golang:
+    deps:
+      - "dev-essential"
+      - "golang"
+
+  ######################################################
+  # Configurations
+  ######################################################
+  
+  regolith:
+    links:
+      - - ".Xresources-regolith"
+      - ["regolith/i3/config", ".config/regolith/i3/config"]
+
+  nvim:
+    deps:
+      - "nvim__bin"
+    links:
+      - [".config/nvim/", "config/nvim/"]
+      - [".config/coc/ultisnips/", "config/coc/ultisnips/"]
+    cmdspost:
+      - [
+        "nvim",
+        "+PlugInstall",
+        "+GoInstallBinaries",
+        "+\"CocInstall coc-snippets\"",
+        "+\"CocInstall vscode-ginkgo\"",
+        "+\"CocInstall coc-json\"",
+        "+\"CocInstall coc-html\"",
+        "+\"CocInstall coc-yaml\"",
+        "+qall",
+        ]
+  
+  ######################################################
+  # Utils
+  ######################################################
+
+  # Modifies bashrc to load all files in .conf/bashrc/
+  # Other sections will link scripts there
+  bashrc-handler:
+    rejects: 
+      - ["grep", "-q", "Homemaker", ".bashrc"]
+    cmds:
+      - [
+          "bash", "-c",
+          "echo $HM_SRC/bash_handler.sh >> .bashrc"
+        ]
+      - ["mkdir", "-p", ".config/bashrc"]
+
+
+  ######################################################
+  # Applications
+  ######################################################
+
+  golang-bin__uninstall:
+    accepts: 
+      - ["which", "go"]
+    cmds:
+      - ["sudo", "rm", "-rd", "/usr/local/go"]
+
+  golang-bin:
+    rejects: 
+      - ["which", "go"]
+    envs:
+      - ["GO_VERSION", "1.13"]
+      - ["OS", "linux"]
+      - ["ARCH", "amd64"]
+      - ["DOWNLOAD_DIR", "Downloads"]
+    cmds:
+      - [
+          "@download",
+          "$DOWNLOAD_DIR/go$GO_VERSION.$OS-$ARCH.tar.gz",
+          "https://dl.google.com/go/go$GO_ERSION.$OS-$ARCH.tar.gz",
+        ]
+      - ["sudo", "tar", "-C", "/usr/local", "-xzf", "$DOWNLOAD_DIR/go$GO_VERSION.$OS-$ARCH.tar.gz"]
+      - ["rm", "$DOWNLOAD_DIR/go$GO_VERSION.$OS-$ARCH.tar.gz"]
+
+
+  nvim-bin:
+    rejects: 
+      - ["which", "nvim"]
+    cmds:
+      - [
+          "@download",
+          ".local/bin/nvim",
+          "https://github.com/neovim/neovim/releases/download/v0.3.8/nvim.appimage",
+        ]
+
+
