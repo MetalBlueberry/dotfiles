@@ -94,11 +94,15 @@ tasks:
       - [
           "@download",
           "$DOWNLOAD_DIR/go$GO_VERSION.$OS-$ARCH.tar.gz",
-          "https://dl.google.com/go/go$GO_ERSION.$OS-$ARCH.tar.gz",
+          "https://dl.google.com/go/go$GO_VERSION.$OS-$ARCH.tar.gz",
         ]
       - ["sudo", "tar", "-C", "/usr/local", "-xzf", "$DOWNLOAD_DIR/go$GO_VERSION.$OS-$ARCH.tar.gz"]
       - ["rm", "$DOWNLOAD_DIR/go$GO_VERSION.$OS-$ARCH.tar.gz"]
 
+  regolith-bin:
+    cmds:
+      - ["sudo", "add-apt-repository", "-y", "ppa:kgilmer/regolith-stable"]
+      - ["sudo", "apt", "install", "regolith-desktop"]
 
   nvim-bin:
     rejects: 
