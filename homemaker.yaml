@@ -142,6 +142,13 @@ tasks:
           "+x",
           ".local/bin/nvim",
         ]
+
+  fish-bin__uninstall:
+    accepts: 
+      - ["which", "fish"]
+      - ["chsh", "-s", "/usr/local/bin/bash"]
+      - ["sudo", "apt-get", "autoremove", "fish"]
+
   fish-bin:
     rejects: 
       - ["which", "fish"]
@@ -149,5 +156,7 @@ tasks:
       - ["sudo", "apt-add-repository", "ppa:fish-shell/release-3"]
       - ["sudo", "apt-get", "update"]
       - ["sudo", "apt-get", "install", "fish"]
+      - ["bash", "c", "echo /usr/local/bin/fish | sudo tee -a /etc/shells"]
+      - ["chsh", "-s", "/usr/local/bin/fish"]
 
 
