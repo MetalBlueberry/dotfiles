@@ -34,7 +34,7 @@ tasks:
 
   nvim:
     deps:
-      - "nvim__bin"
+      - "nvim-bin"
     links:
       - [".config/nvim/", "config/nvim/"]
       - [".config/coc/ultisnips/", "config/coc/ultisnips/"]
@@ -51,6 +51,10 @@ tasks:
         "+qall",
         ]
   
+  fish:
+    links:
+      - [".config/fish/fish_variables", "config/fish/fish_variables"]
+      - [".config/fish/functions/fish_prompt.fish", "config/fish/functions/fish_prompt.fish"]
   ######################################################
   # Utils
   ######################################################
@@ -104,6 +108,11 @@ tasks:
           "@download",
           ".local/bin/nvim",
           "https://github.com/neovim/neovim/releases/download/v0.3.8/nvim.appimage",
+        ]
+      - [
+          "chmod",
+          "+x",
+          ".local/bin/nvim",
         ]
 
 
