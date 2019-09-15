@@ -25,18 +25,24 @@
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
 
-snippet secti "image section" b
+snippet secti "Image section" b
 <section>
 	<img src="${1}">
 </section>
 endsnippet
 
-snippet sectcode "code section" b
+snippet sectcode "Code section" b
 <section>
 	<pre>
 		<code data-trim data-noescape>
 		${1}
 		</code>
 	</pre>
+</section>
+endsnippet
+
+snippet sectt "Title section" b
+<section>
+	<h1>${1}</h1>
 </section>
 endsnippet
