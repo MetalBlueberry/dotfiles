@@ -80,7 +80,7 @@ tasks:
     cmds:
       - [
           "bash", "-c",
-          "echo $HM_SRC/bash_handler.sh >> .bashrc"
+          "cat $HM_SRC/bash_handler.sh >> .bashrc"
         ]
       - ["mkdir", "-p", ".config/bashrc"]
 
