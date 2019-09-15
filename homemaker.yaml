@@ -30,7 +30,7 @@ tasks:
   regolith:
     links:
       - - ".Xresources-regolith"
-      - ["regolith/i3/config", ".config/regolith/i3/config"]
+      - [".config/regolith/i3/config", "config/regolith/i3/config"]
 
   nvim:
     deps:
@@ -100,6 +100,8 @@ tasks:
       - ["rm", "$DOWNLOAD_DIR/go$GO_VERSION.$OS-$ARCH.tar.gz"]
 
   regolith-bin:
+    deps: 
+      - "regolith"
     cmds:
       - ["sudo", "add-apt-repository", "-y", "ppa:kgilmer/regolith-stable"]
       - ["sudo", "apt", "install", "regolith-desktop"]
