@@ -6,9 +6,11 @@ macros:
     prefix: ["sudo", "apt-get", "install", "-y"]
 
 tasks:
+
   ######################################################
   # Packages
   ######################################################
+
   dev-essential:
     deps:
       - "nvim"
@@ -22,12 +24,20 @@ tasks:
     deps:
       - "dev-essential"
       - "golang"
+    cmdspost:
+      - [
+        "nvim",
+        "+GoInstallBinaries",
+        "+qall",
+        ]
 
   ######################################################
   # Configurations
   ######################################################
   
   regolith:
+    deps:
+      - "regolith-bin"
     links:
       - - ".Xresources-regolith"
       - [".config/regolith/i3/config", "config/regolith/i3/config"]
@@ -35,6 +45,9 @@ tasks:
   nvim:
     deps:
       - "nvim-bin"
+    cmds:
+      - - "@package"
+        - "nodejs"
     links:
       - [".config/nvim/", "config/nvim/"]
       - [".config/coc/ultisnips/", "config/coc/ultisnips/"]
@@ -42,7 +55,6 @@ tasks:
       - [
         "nvim",
         "+PlugInstall",
-        "+GoInstallBinaries",
         "+\"CocInstall coc-snippets\"",
         "+\"CocInstall vscode-ginkgo\"",
         "+\"CocInstall coc-json\"",
@@ -55,6 +67,7 @@ tasks:
     links:
       - [".config/fish/fish_variables", "config/fish/fish_variables"]
       - [".config/fish/functions/fish_prompt.fish", "config/fish/functions/fish_prompt.fish"]
+
   ######################################################
   # Utils
   ######################################################
