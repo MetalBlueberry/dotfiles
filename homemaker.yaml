@@ -5,6 +5,9 @@ macros:
   package:
     prefix: ["sudo", "apt-get", "install", "-y"]
 
+  pipe:
+    prefix: ["bash", "-c"]
+
 tasks:
 
   ######################################################
