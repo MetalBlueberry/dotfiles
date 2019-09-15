@@ -69,13 +69,17 @@ tasks:
         "+\"CocInstall coc-yaml\"",
         "+qall",
         ]
+  test:
+    cmds:
   
   fish:
     deps:
       - "fish-bin"
     links:
+      - [".config/fish/config.fish", "config/fish/config.fish"]
       - [".config/fish/fish_variables", "config/fish/fish_variables"]
       - [".config/fish/functions/fish_prompt.fish", "config/fish/functions/fish_prompt.fish"]
+
 
   ######################################################
   # Utils
@@ -156,7 +160,10 @@ tasks:
       - ["sudo", "apt-add-repository", "ppa:fish-shell/release-3"]
       - ["sudo", "apt-get", "update"]
       - ["sudo", "apt-get", "install", "fish"]
-      - ["bash", "c", "echo /usr/local/bin/fish | sudo tee -a /etc/shells"]
+      - ["@pipe", "echo /usr/local/bin/fish | sudo tee -a /etc/shells"]
       - ["chsh", "-s", "/usr/local/bin/fish"]
+      - ["@pipe", "curl -L https://get.oh-my.fish | fish"]
+      - ["omf", "install", "https://github.com/jethrokuan/fzf"]
+      - [".fzf/install", "--all"]
 
 
