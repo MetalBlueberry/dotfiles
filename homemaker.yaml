@@ -5,8 +5,11 @@ macros:
   package:
     prefix: ["sudo", "apt-get", "install", "-y"]
 
-  pipe:
+  bash:
     prefix: ["bash", "-c"]
+
+  fish:
+    prefix: ["fish", "-c"]
 
 tasks:
 
@@ -163,10 +166,10 @@ tasks:
       - ["sudo", "apt-add-repository", "ppa:fish-shell/release-3"]
       - ["sudo", "apt-get", "update"]
       - ["sudo", "apt-get", "install", "fish"]
-      - ["@pipe", "echo /usr/local/bin/fish | sudo tee -a /etc/shells"]
-      - ["chsh", "-s", "/usr/local/bin/fish"]
-      - ["@pipe", "curl -L https://get.oh-my.fish | fish"]
-      - ["omf", "install", "https://github.com/jethrokuan/fzf"]
+      - ["@bash", "echo /usr/bin/fish | sudo tee -a /etc/shells"]
+      - ["chsh", "-s", "/usr/bin/fish"]
+      - ["@bash", "curl -L https://get.oh-my.fish | fish"]
+      - ["@fish", "omf install https://github.com/jethrokuan/fzf"]
       - [".fzf/install", "--all"]
 
 
