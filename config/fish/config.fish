@@ -1,2 +1,3 @@
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_COMPLETE 0
+set -x EDITOR nvim
