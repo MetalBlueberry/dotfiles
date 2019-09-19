@@ -1,4 +1,9 @@
 function fish_prompt
+    if [ $status -ne 0 ]
+        set retc red
+    else
+        set retc green
+    end
 	
     # - green lines if the last return command is OK, red otherwise
     # - your user name, in red if root or yellow otherwise
@@ -41,8 +46,7 @@ function fish_prompt
         set_color -o green
         echo -n ']'
     end
-    and set retc green
-    or set retc red
+    
 
     set_color $retc
     echo -n '┬─'
