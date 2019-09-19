@@ -42,6 +42,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'fatih/vim-go', { 'tag': 'v1.20' }
 Plug 'sebdah/vim-delve'
 
+" Fish
+Plug 'dag/vim-fish'
+
 " Preview Images as ASCII art, requires python Pillow
 " Plug 'DougBeney/image.vim'
 "
@@ -63,6 +66,7 @@ set shiftwidth=4
 set expandtab
 set autowrite
 set number
+syntax enable
 filetype plugin indent on
 
 " open autocomplete
