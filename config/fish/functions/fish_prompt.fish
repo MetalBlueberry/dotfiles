@@ -72,11 +72,7 @@ function fish_prompt
     echo -n ']'
 
     # Date
-    _nim_prompt_wrapper $retc '' (date +%X)
-
-    # Virtual Environment
-    set -q VIRTUAL_ENV
-    and _nim_prompt_wrapper $retc V (basename "$VIRTUAL_ENV")
+    #_nim_prompt_wrapper $retc '' (date +%X)
 
     # git
     set prompt_git (__fish_git_prompt | string trim -c ' ()')
