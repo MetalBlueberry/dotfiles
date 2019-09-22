@@ -80,6 +80,7 @@ noremap <leader>w :w<CR>
 " Find files
 nnoremap <C-p> :Files<Cr>
 
+
 let g:lightline = {
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
