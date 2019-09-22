@@ -11,5 +11,5 @@ nmap <leader>fi <Plug>(go-imports)
 " Ensure debuger runs in full screen
 let g:delve_new_command = "enew"
 nmap <leader>t :DlvToggleBreakpoint<CR>
-nmap <leader>T :DlvTest<CR>
-nmap <leader>R :DlvDebug<CR>
+nmap <leader>T :sp<CR><C-w>T:DlvTest<CR>
+nmap <leader>R :sp<CR><C-w>T:DlvDebug<CR>
