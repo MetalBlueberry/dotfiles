@@ -75,7 +75,6 @@ function fzf_key_bindings
 
         # Remove last token from commandline.
         commandline -t ""
-        ls
       end
     end
 
