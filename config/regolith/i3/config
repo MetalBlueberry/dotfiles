@@ -301,5 +301,5 @@ exec --no-startup-id /usr/bin/regolith-ftue.sh
 exec --no-startup-id /usr/bin/unclutter -b
 
 # Chat clients in workspace 10
-exec --no-startup-id i3-msg 'workspace $ws10; exec /usr/bin/slack; exec /usr/bin/pidgin'
+#exec --no-startup-id i3-msg 'workspace $ws10; exec /usr/bin/slack; exec /usr/bin/pidgin'
 
