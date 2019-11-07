@@ -1,5 +1,6 @@
 function posix-source
-	for i in (cat $argv)
+	for i in (cat $argv | grep -v "^#" | grep =)
+        echo $i
 		set arr (echo $i |tr = \n)
   		set -gx $arr[1] $arr[2]
 	end
