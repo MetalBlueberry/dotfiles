@@ -163,11 +163,11 @@ tasks:
     rejects: 
       - ["which", "fish"]
     cmds:
-      - ["sudo", "apt-add-repository", "ppa:fish-shell/release-3"]
-      - ["sudo", "apt-get", "update"]
-      - ["sudo", "apt-get", "install", "fish"]
+      - ["sudo", "apt-add-repository", "ppa:fish-shell/release-3", "-y"]
+      - ["sudo", "apt-get", "update", "-y"]
+      - ["sudo", "apt-get", "install", "-y", "fish"]
       - ["@bash", "echo /usr/bin/fish | sudo tee -a /etc/shells"]
-      - ["chsh", "-s", "/usr/bin/fish"]
+      - ["@bash", "echo $PASS | chsh $USER -s /usr/bin/fish"]
       - ["@bash", "curl -L https://get.oh-my.fish | fish"]
       - ["@fish", "omf install https://github.com/jethrokuan/fzf"]
       - [".fzf/install", "--all"]
