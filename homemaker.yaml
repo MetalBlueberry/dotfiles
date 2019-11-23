@@ -136,12 +136,13 @@ tasks:
       - "regolith"
     cmds:
       - ["sudo", "add-apt-repository", "-y", "ppa:kgilmer/regolith-stable"]
-      - ["sudo", "apt", "install", "regolith-desktop"]
+      - ["sudo", "apt", "install", "regolith-desktop", "-y"]
 
   nvim-bin:
     rejects: 
       - ["which", "nvim"]
     cmds:
+      - ["mkdir", "-p", ".local/bin"]
       - [
           "@download",
           ".local/bin/nvim",
