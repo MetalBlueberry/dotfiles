@@ -49,8 +49,6 @@ tasks:
   ######################################################
   
   regolith:
-    deps:
-      - "regolith-bin"
     links:
       - - ".Xresources-regolith"
       - [".config/regolith/i3/config", "config/regolith/i3/config"]
