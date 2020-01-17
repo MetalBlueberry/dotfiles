@@ -35,8 +35,7 @@ floating_modifier $mod
 hide_edge_borders smart
 
 # start a terminal
-bindsym $mod+Return exec /usr/bin/st
-#bindsym $mod+Return exec /usr/bin/gnome-terminal
+bindsym $mod+Return exec /usr/bin/st 
 
 # start a web browser
 bindsym $mod+Shift+Return exec /usr/bin/sensible-browser
@@ -58,8 +57,8 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
+# bindsym $mod+j focus down
+# bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # move windows in workspaces
@@ -77,7 +76,7 @@ bindsym $mod+Shift+l move right
 bindsym $mod+BackSpace split toggle
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+i fullscreen toggle
 
 # change gaps interactively
 bindsym $mod+minus gaps inner current minus 6
@@ -119,6 +118,9 @@ bindsym $mod+Ctrl+9 workspace $ws19
 # cycle between workspace
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
+
+bindsym $mod+k workspace next
+bindsym $mod+j workspace prev
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
