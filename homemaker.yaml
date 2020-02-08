@@ -52,6 +52,7 @@ tasks:
     links:
       - - ".Xresources-regolith"
       - [".config/regolith/i3/config", "config/regolith/i3/config"]
+      - [".config/regolith/i3xrocks/config", "config/regolith/i3xrocks/config"]
 
   nvim:
     deps:
@@ -89,18 +90,6 @@ tasks:
   # Utils
   ######################################################
 
-  # Modifies bashrc to load all files in .conf/bashrc/
-  # Other sections will link scripts there
-  bashrc-handler:
-    rejects: 
-      - ["grep", "-q", "Homemaker", ".bashrc"]
-    cmds:
-      - [
-          "bash", "-c",
-          "cat $HM_SRC/bash_handler.sh >> .bashrc"
-        ]
-      - ["mkdir", "-p", ".config/bashrc"]
-
 
   ######################################################
   # Applications
@@ -129,13 +118,6 @@ tasks:
       - ["sudo", "tar", "-C", "/usr/local", "-xzf", "$DOWNLOAD_DIR/go$GO_VERSION.$OS-$ARCH.tar.gz"]
       - ["rm", "$DOWNLOAD_DIR/go$GO_VERSION.$OS-$ARCH.tar.gz"]
 
-  regolith-bin:
-    deps: 
-      - "regolith"
-    cmds:
-      - ["sudo", "add-apt-repository", "-y", "ppa:kgilmer/regolith-stable"]
-      - ["sudo", "apt", "install", "regolith-desktop", "-y"]
-
   nvim-bin:
     rejects: 
       - ["which", "nvim"]
@@ -155,6 +137,7 @@ tasks:
   fish-bin__uninstall:
     accepts: 
       - ["which", "fish"]
+    cmds:
       - ["chsh", "-s", "/usr/local/bin/bash"]
       - ["sudo", "apt-get", "autoremove", "fish"]
 
