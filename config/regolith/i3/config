@@ -190,7 +190,7 @@ bindsym $mod+Shift+e exec /usr/bin/gnome-session-quit --logout
 bindsym $mod+Shift+b exec /usr/bin/gnome-session-quit --reboot
 
 ## Session // Power Down // <Super><Shift> p ##
-bindsym $mod+Shift+p exec /usr/bin/gnome-session-quit --power-off
+# bindsym $mod+Shift+p exec /usr/bin/gnome-session-quit --power-off
 
 ## Session // Lock Screen // <Super> Escape ##
 bindsym $mod+Escape exec gnome-screensaver-command --lock
