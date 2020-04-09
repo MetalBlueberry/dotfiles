@@ -44,6 +44,9 @@ tasks:
   ######################################################
 
   regolith:
+    cmds:
+      - - "@package"
+        - "dunst"
     links:
       - [".Xresources-regolith", ".Xresources-regolith"]
       - [".config/regolith/i3/config", "config/regolith/i3/config"]
