@@ -12,12 +12,11 @@ macros:
     prefix: ["fish", "-c"]
 
 tasks:
-
   ######################################################
   # Packages
   ######################################################
 
-  # Basic tools 
+  # Basic tools
   dev-essential:
     deps:
       - "nvim"
@@ -32,27 +31,24 @@ tasks:
     deps:
       - "regolith"
       - "fish"
-      
+
   dev-golang:
     deps:
       - "dev-essential"
       - "golang"
     cmdspost:
-      - [
-        "nvim",
-        "+GoInstallBinaries",
-        "+qall",
-        ]
+      - ["nvim", "+GoInstallBinaries", "+qall"]
 
   ######################################################
   # Configurations
   ######################################################
-  
+
   regolith:
     links:
-      - - ".Xresources-regolith"
+      - [".Xresources-regolith", ".Xresources-regolith"]
       - [".config/regolith/i3/config", "config/regolith/i3/config"]
       - [".config/regolith/i3xrocks/config", "config/regolith/i3xrocks/config"]
+      - [".config/dunst/dunstrc", "config/dunst/dunstrc"]
 
   nvim:
     deps:
@@ -65,18 +61,18 @@ tasks:
       - [".config/coc/ultisnips/", "config/coc/ultisnips/"]
     cmdspost:
       - [
-        "nvim",
-        "+PlugInstall",
-        "+\"CocInstall coc-snippets\"",
-        "+\"CocInstall vscode-ginkgo\"",
-        "+\"CocInstall coc-json\"",
-        "+\"CocInstall coc-html\"",
-        "+\"CocInstall coc-yaml\"",
-        "+qall",
+          "nvim",
+          "+PlugInstall",
+          '+"CocInstall coc-snippets"',
+          '+"CocInstall vscode-ginkgo"',
+          '+"CocInstall coc-json"',
+          '+"CocInstall coc-html"',
+          '+"CocInstall coc-yaml"',
+          "+qall",
         ]
   test:
     cmds:
-  
+
   fish:
     deps:
       - "fish-bin"
@@ -85,24 +81,22 @@ tasks:
       - [".config/fish/fish_variables", "config/fish/fish_variables"]
       - [".config/fish/functions", "config/fish/functions"]
 
-
   ######################################################
   # Utils
   ######################################################
-
 
   ######################################################
   # Applications
   ######################################################
 
   golang-bin__uninstall:
-    accepts: 
+    accepts:
       - ["which", "go"]
     cmds:
       - ["sudo", "rm", "-rd", "/usr/local/go"]
 
   golang-bin:
-    rejects: 
+    rejects:
       - ["which", "go"]
     envs:
       - ["GO_VERSION", "1.13"]
@@ -115,11 +109,18 @@ tasks:
           "$DOWNLOAD_DIR/go$GO_VERSION.$OS-$ARCH.tar.gz",
           "https://dl.google.com/go/go$GO_VERSION.$OS-$ARCH.tar.gz",
         ]
-      - ["sudo", "tar", "-C", "/usr/local", "-xzf", "$DOWNLOAD_DIR/go$GO_VERSION.$OS-$ARCH.tar.gz"]
+      - [
+          "sudo",
+          "tar",
+          "-C",
+          "/usr/local",
+          "-xzf",
+          "$DOWNLOAD_DIR/go$GO_VERSION.$OS-$ARCH.tar.gz",
+        ]
       - ["rm", "$DOWNLOAD_DIR/go$GO_VERSION.$OS-$ARCH.tar.gz"]
 
   nvim-bin:
-    rejects: 
+    rejects:
       - ["which", "nvim"]
     cmds:
       - ["mkdir", "-p", ".local/bin"]
@@ -128,21 +129,17 @@ tasks:
           ".local/bin/nvim",
           "https://github.com/neovim/neovim/releases/download/v0.3.8/nvim.appimage",
         ]
-      - [
-          "chmod",
-          "+x",
-          ".local/bin/nvim",
-        ]
+      - ["chmod", "+x", ".local/bin/nvim"]
 
   fish-bin__uninstall:
-    accepts: 
+    accepts:
       - ["which", "fish"]
     cmds:
       - ["chsh", "-s", "/usr/local/bin/bash"]
       - ["sudo", "apt-get", "autoremove", "fish"]
 
   fish-bin:
-    rejects: 
+    rejects:
       - ["which", "fish"]
     cmds:
       - ["sudo", "apt-add-repository", "ppa:fish-shell/release-3", "-y"]
@@ -153,5 +150,3 @@ tasks:
       - ["@bash", "curl -L https://get.oh-my.fish | fish"]
       - ["@fish", "omf install https://github.com/jethrokuan/fzf"]
       - [".fzf/install", "--all"]
-
-
