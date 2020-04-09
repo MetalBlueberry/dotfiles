@@ -29,15 +29,15 @@ color=xresource:i3xrocks.value.color
 label_color=xresource:i3xrocks.label.color
 
 # Link to execute shortcuts.
-#[info]
-#full_text=xresource:i3xrocks.label.help
-#command=i3-msg -q exec /usr/bin/remontoire-toggle
+# [info]
+# full_text=xresource:i3xrocks.label.help
+# command=i3-msg -q exec /usr/bin/remontoire-toggle
 
 # Network manager VPN
 #
 # Displays currently connected VPN using the nm-cli tool.
-[nm-vpn]
-interval=5
+#[nm-vpn]
+#interval=5
 
 # Wifi
 #
@@ -61,6 +61,11 @@ interval=5
 [keyboard_layout]
 interval=persist
 
+# Memory
+
+[memory]
+interval=10
+
 # CPU usage
 #
 # The script may be called with -w and -c switches to specify thresholds,
@@ -72,6 +77,7 @@ min_width=100%
 # Battery indicator
 #
 # Displays total percentage charge left of specified battery.
+# You can specify the instance by adding:
 [battery3]
 interval=30
 instance=BAT0

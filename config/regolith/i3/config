@@ -4,14 +4,8 @@
 
 # This defines which key super maps to on your keyboard.
 # Alt key is Mod1, and Windows key is Mod4
-set $mod Mod4
-set $alt Mod1
-
-# i3xrocks config file. Override this for custom status indicators on the bar.
-set $i3xrocks_config ~/.config/regolith/i3xrocks/config
-
-# path to terminal. Override this to specify a custom terminal.
-set $terminal_path /usr/bin/st
+set_from_resource $mod  i3-wm.mod Mod4
+set_from_resource $alt  i3-wm.alt Mod1
 
 # Color values are defined in ~/.Xresources-regolith
 # These are the labels which define each i3 workspace.
@@ -40,71 +34,76 @@ floating_modifier $mod
 
 hide_edge_borders smart
 
-# start a terminal
-bindsym $mod+Return exec $terminal_path
+## Launch // Terminal // <Super> Enter ##
+bindsym $mod+Return exec /usr/bin/st
 
-# start a web browser
-bindsym $mod+Shift+Return exec /usr/bin/x-www-browser
+## Launch // Browser // <Super><Shift> Enter ##
+bindsym $mod+Shift+Return exec gtk-launch $(xdg-settings get default-web-browser)
 
-# kill focused window
-bindsym $mod+Shift+q kill
-
+## Session // Exit App // <Super><Shift> q ##
+bindsym $mod+Shift+q [con_id="__focused__"] kill
+## Session // Kill App // <Super><Alt> q ##
+bindsym $mod+$alt+q [con_id="__focused__"] exec --no-startup-id kill -9 $(xdotool getwindowfocus getwindowpid)
 set_from_resource $rofiTheme rofi.theme "regolith-theme"
 
 # rofi app and window launchers
+## Launch // Application // <Super> Space ##
 bindsym $mod+space exec rofi -show drun -theme $rofiTheme
+## Launch // Command // <Super><Shift> Space ##
 bindsym $mod+Shift+space exec rofi -show run -theme $rofiTheme
+## Navigate // Window by Name // <Super><Ctrl> Space ##
 bindsym $mod+Ctrl+space exec rofi -show window -theme $rofiTheme
 
-# change focus
+## Navigate // Relative Window // <Super> ↑ ↓ ← →
 bindsym $mod+Left focus left
 # bindsym $mod+Down focus down
 # bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
+## Navigate // Relative Window // <Super> k j h l ##
 bindsym $mod+h focus left
 # bindsym $mod+j focus down
 # bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# move windows in workspaces
+## Modify // Window Position // <Super><Shift> ↑ ↓ ← → ##
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+## Modify // Window Position // <Super><Shift> k j h l ##
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# move workspaces to outputs
+## Modify // Containing Workspace // <Super><Ctrl><Shift> ↑ ↓ ← → ##
 bindsym $mod+Ctrl+Shift+Left move workspace to output left
 bindsym $mod+Ctrl+Shift+Down move workspace to output down
 bindsym $mod+Ctrl+Shift+Up move workspace to output up
 bindsym $mod+Ctrl+Shift+Right move workspace to output right
 
-# toggle split orientation
+## Modify // Next Window Orientation // <Super> Backspace ##
 bindsym $mod+BackSpace split toggle
 
-# enter fullscreen mode for the focused container
+## Modify // Window Fullscreen Toggle // <Super> f ##
 bindsym $mod+i fullscreen toggle
 
-# show/hide keybindings
-bindsym $mod+Shift+question exec --no-startup-id /usr/bin/remontoire-toggle
-
-# toggle tiling / floating
+## Modify // Window Floating Toggle // <Super><Shift> f ##
 bindsym $mod+Shift+f floating toggle
+## Modify // Move to Scratchpad // <Super><Ctrl> m ##
 bindsym $mod+Ctrl+m move to scratchpad
+## Navigate // Scratchpad // <Super><Ctrl> a ##
 bindsym $mod+Ctrl+a scratchpad show
 
-# change focus between tiling / floating windows
+## Navigate // Tile/Float Focus Toggle // <Super><Shift> t ##
 bindsym $mod+Shift+t focus mode_toggle
 
-# toggle tabbed mode
+## Modify // Window Layout Mode // <Super> t ##
 bindsym $mod+t layout toggle tabbed splith splitv
 
-# switch to workspace
+## Navigate // Workspace // <Super> 0..9 ##
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -115,6 +114,7 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
+## Navigate // Workspace // <Super><Ctrl> 0..9 ##
 bindsym $mod+Ctrl+1 workspace number $ws11
 bindsym $mod+Ctrl+2 workspace number $ws12
 bindsym $mod+Ctrl+3 workspace number $ws13
@@ -125,14 +125,13 @@ bindsym $mod+Ctrl+7 workspace number $ws17
 bindsym $mod+Ctrl+8 workspace number $ws18
 bindsym $mod+Ctrl+9 workspace number $ws19
 
-# cycle across workspaces
-# bindsym $mod+Tab workspace next
-# bindsym $mod+Shift+Tab workspace prev
-
+# Workspace Navigation
+## Navigate // Next Workspace
 bindsym $mod+k workspace next
+## Navigate // Previous Workspace 
 bindsym $mod+j workspace prev
 
-# move focused container to workspace
+## Modify // Move Window to Workspace // <Super><Shift> 0..9 ##
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
@@ -143,6 +142,7 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+## Modify // Move Window to Workspace // <Super><Ctrl><Shift> 0..9 ##
 bindsym $mod+Shift+Ctrl+1 move container to workspace number $ws11
 bindsym $mod+Shift+Ctrl+2 move container to workspace number $ws12
 bindsym $mod+Shift+Ctrl+3 move container to workspace number $ws13
@@ -154,6 +154,7 @@ bindsym $mod+Shift+Ctrl+8 move container to workspace number $ws18
 bindsym $mod+Shift+Ctrl+9 move container to workspace number $ws19
 
 # move focused container to workspace, move to workspace
+## Modify // Take Window to Workspace // <Super><Alt> 0..9 ##
 bindsym $mod+$alt+1 move container to workspace number $ws1; workspace number $ws1  
 bindsym $mod+$alt+2 move container to workspace number $ws2; workspace number $ws2
 bindsym $mod+$alt+3 move container to workspace number $ws3; workspace number $ws3
@@ -164,6 +165,7 @@ bindsym $mod+$alt+7 move container to workspace number $ws7; workspace number $w
 bindsym $mod+$alt+8 move container to workspace number $ws8; workspace number $ws8
 bindsym $mod+$alt+9 move container to workspace number $ws9; workspace number $ws9
 bindsym $mod+$alt+0 move container to workspace number $ws10; workspace number $ws10
+## Modify // Take Window to Workspace // <Super><Alt><Ctrl> 0..9 ##
 bindsym $mod+$alt+Ctrl+1 move container to workspace number $ws11; workspace number $ws11
 bindsym $mod+$alt+Ctrl+2 move container to workspace number $ws12; workspace number $ws12
 bindsym $mod+$alt+Ctrl+3 move container to workspace number $ws13; workspace number $ws13
@@ -174,48 +176,58 @@ bindsym $mod+$alt+Ctrl+7 move container to workspace number $ws17; workspace num
 bindsym $mod+$alt+Ctrl+8 move container to workspace number $ws18; workspace number $ws18
 bindsym $mod+$alt+Ctrl+9 move container to workspace number $ws19; workspace number $ws19
 
-# reload the configuration file
+
+## Session // Reload i3 Config // <Super><Shift> c ##
 bindsym $mod+Shift+c reload
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# Session // Restart i3 // <Super><Shift> r ##
 bindsym $mod+Shift+r restart
 
-# Logout of session
+## Session // Logout // <Super><Shift> e ##
 bindsym $mod+Shift+e exec /usr/bin/gnome-session-quit --logout
 
-# Reboot computer
+## Session // Reboot // <Super><Shift> b ##
 bindsym $mod+Shift+b exec /usr/bin/gnome-session-quit --reboot
 
-# Power off computer
+## Session // Power Down // <Super><Shift> p ##
 bindsym $mod+Shift+p exec /usr/bin/gnome-session-quit --power-off
 
-# lock the screen
+## Session // Lock Screen // <Super> Escape ##
 bindsym $mod+Escape exec gnome-screensaver-command --lock
 
-# put the system to sleep
+## Session // Sleep // <Super><Shift> s ##
 bindsym $mod+Shift+s exec systemctl suspend
 
-# shortcuts for common system configuration tasks
+## Modify // Settings // <Super> c ##
 bindsym $mod+c exec gnome-control-center
+## Modify // Display Settings // <Super> d ##
 bindsym $mod+d exec gnome-control-center display
+## Modify // Wifi Settings // <Super> w ##
 bindsym $mod+w exec gnome-control-center wifi
+## Launch // File Browser // <Super><Shift> n ##
 bindsym $mod+Shift+n exec nautilus
+## Launch // Notification Viewer // <Super> n ##
 bindsym $mod+n exec /usr/share/rofication/rofication-gui.py
 
 # i3-snapshot for load/save current layout
+## Modify // Save Window Layout // <Super> , ##
 bindsym $mod+comma  exec /usr/bin/i3-snapshot -o > /tmp/i3-snapshot 
+## Modify // Load Window Layout // <Super> . ##
 bindsym $mod+period exec /usr/bin/i3-snapshot -c < /tmp/i3-snapshot
 
 # Toggle bar visibility
+## Modify // Toggle Bar // <Super> i ##
 bindsym $mod+f bar mode toggle
 
 # Cause Settings app to float above tiled windows
 floating_maximum_size -1 x -1
 for_window [class="Gnome-control-center"] floating enable
 
-# resize window (you can also use the mouse for that)
+## Resize // Enter Resize Mode // <Super> r ##
 mode "Resize Mode" {
         # These bindings trigger as soon as you enter the resize mode
+
+        ## Resize // Resize Window // ↑ ↓ ← → ##
         bindsym Left resize shrink width 6 px or 6 ppt
         bindsym Down resize grow height 6 px or 6 ppt
         bindsym Up resize shrink height 6 px or 6 ppt
@@ -226,6 +238,7 @@ mode "Resize Mode" {
         bindsym Shift+Up resize shrink height 12 px or 12 ppt
         bindsym Shift+Right resize grow width 12 px or 12 ppt
 
+        ## Resize // Resize Window // k j h l ##
         bindsym h resize shrink width 6 px or 6 ppt
         bindsym k resize grow height 6 px or 6 ppt
         bindsym j resize shrink height 6 px or 6 ppt
@@ -236,26 +249,33 @@ mode "Resize Mode" {
         bindsym Shift+j resize shrink height 12 px or 12 ppt
         bindsym Shift+l resize grow width 12 px or 12 ppt
 
-        # change gaps interactively
+        ## Resize // Window Gaps // + - ##
         bindsym minus gaps inner current minus 6
         bindsym plus gaps inner current plus 6
         bindsym Shift+minus gaps inner current minus 12
         bindsym Shift+plus gaps inner current plus 12
 
-        # back to normal: Enter or Escape
+        ## Resize // Exit Resize Mode // Escape or Enter ## 
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "Resize Mode"
 
+## Other // Toggle this Dialog // <Super><Shift> ? ##
+bindsym $mod+Shift+question exec --no-startup-id /usr/bin/remontoire-toggle
+
 # Disable titlebar
-new_window pixel 1
-new_float pixel 1
+set_from_resource $i3-wm.window.border.size i3-wm.window.border.size 1
+set_from_resource $i3-wm.floatingwindow.border.size i3-wm.floatingwindow.border.size 1
+default_border pixel $i3-wm.window.border.size
+default_floating_border pixel $i3-wm.floatingwindow.border.size
 
 # Specify the distance between windows in pixels. (i3-gaps)
-gaps inner 5
-gaps outer 0
+set_from_resource $i3-wm.gaps.inner.size i3-wm.gaps.inner.size 5
+set_from_resource $i3-wm.gaps.outer.size i3-wm.gaps.outer.size 0
+gaps inner $i3-wm.gaps.inner.size
+gaps outer $i3-wm.gaps.outer.size
 
 # Only enable gaps on a workspace when there is at least one container
 smart_gaps on
@@ -320,16 +340,28 @@ set_from_resource $i3-wm.bar.workspace.urgent.border.color i3-wm.bar.workspace.u
 set_from_resource $i3-wm.bar.workspace.urgent.background.color i3-wm.bar.workspace.urgent.background.color "#dc322f"
 set_from_resource $i3-wm.bar.workspace.urgent.text.color i3-wm.bar.workspace.urgent.text.color "#fdf6e3"
 
-set_from_resource $i3-wm.bar.font i3-wm.bar.font "pango:Source Code Pro Medium 13, FontAwesome 13"
-font $i3-wm.bar.font
+# Sets i3 font for dialogs
+set_from_resource $i3-wm.font i3-wm.font "pango:Source Code Pro Medium 13"
+font $i3-wm.font
+
+set_from_resource $i3-wm.bar.position i3-wm.bar.position bottom
+set_from_resource $i3-wm.bar.font i3-wm.bar.font "pango:Source Code Pro Medium 13, Material Design Icons 13"
+set_from_resource $i3-wm.bar.separator i3-wm.bar.separator " "
+set_from_resource $i3-wm.bar.trayoutput i3-wm.bar.trayoutput none
+set_from_resource $i3-wm.bar.stripworkspacenumbers i3-wm.bar.stripworkspacenumbers yes
+
+# i3xrocks config file. Override this for custom status indicators on the bar.
+# set_from_resource $i3-wm.i3xrocks.config i3-wm.i3xrocks.config "/etc/regolith/i3xrocks/config"
+set_from_resource $i3-wm.i3xrocks.config i3-wm.i3xrocks.config ~/.config/regolith/i3xrocks/config
 
 # The bar configuration
 bar {
+  position $i3-wm.bar.position
   font $i3-wm.bar.font
-  separator_symbol " "
-  status_command i3xrocks -c $i3xrocks_config
-  tray_output none
-  strip_workspace_numbers yes
+  separator_symbol $i3-wm.bar.separator
+  status_command i3xrocks -c $i3-wm.i3xrocks.config
+  tray_output $i3-wm.bar.trayoutput
+  strip_workspace_numbers $i3-wm.bar.stripworkspacenumbers
 
   colors {
       background $i3-wm.bar.background.color
@@ -351,6 +383,7 @@ exec --no-startup-id /usr/share/regolith-compositor/init
 
 # Start Rofication for notifications
 # exec --no-startup-id /usr/share/rofication/rofication-daemon.py
+exec --no-startup-id /usr/bin/dunst
 
 # Launch first time user experience script
 exec --no-startup-id /usr/bin/regolith-ftue
