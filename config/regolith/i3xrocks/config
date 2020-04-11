@@ -65,6 +65,8 @@ interval=persist
 
 [memory]
 interval=10
+instance=mem;used
+
 
 # CPU usage
 #
