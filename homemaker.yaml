@@ -55,8 +55,6 @@ tasks:
       - [".config/regolith/i3xrocks/config", "config/regolith/i3xrocks/config"]
 
   nvim:
-    deps:
-      - "nvim-bin"
     cmds:
       - - "@package"
         - "nodejs"
@@ -84,6 +82,10 @@ tasks:
       - [".config/fish/config.fish", "config/fish/config.fish"]
       - [".config/fish/fish_variables", "config/fish/fish_variables"]
       - [".config/fish/functions", "config/fish/functions"]
+
+  redshift:
+    links:
+      - [".config/redshift.con", "config/redshift.conf"]
 
 
   ######################################################
