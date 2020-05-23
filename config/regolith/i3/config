@@ -55,15 +55,15 @@ bindsym $mod+Shift+space exec rofi -show run -theme $rofiTheme
 bindsym $mod+Ctrl+space exec rofi -show window -theme $rofiTheme
 
 ## Navigate // Relative Window // <Super> ↑ ↓ ← →
-bindsym $mod+Left focus left
+# bindsym $mod+Left focus left
 # bindsym $mod+Down focus down
 # bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# bindsym $mod+Right focus right
 
 ## Navigate // Relative Window // <Super> k j h l ##
 bindsym $mod+h focus left
-# bindsym $mod+j focus down
-# bindsym $mod+k focus up
+bindsym $mod+j focus down
+bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 ## Modify // Window Position // <Super><Shift> ↑ ↓ ← → ##
@@ -127,9 +127,9 @@ bindsym $mod+Ctrl+9 workspace number $ws19
 
 # Workspace Navigation
 ## Navigate // Next Workspace
-bindsym $mod+k workspace next
+bindsym $mod+w workspace next
 ## Navigate // Previous Workspace 
-bindsym $mod+j workspace prev
+bindsym $mod+e workspace prev
 
 ## Modify // Move Window to Workspace // <Super><Shift> 0..9 ##
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -203,7 +203,7 @@ bindsym $mod+c exec gnome-control-center
 ## Modify // Display Settings // <Super> d ##
 bindsym $mod+d exec gnome-control-center display
 ## Modify // Wifi Settings // <Super> w ##
-bindsym $mod+w exec gnome-control-center wifi
+# bindsym $mod+w exec gnome-control-center wifi
 ## Launch // File Browser // <Super><Shift> n ##
 bindsym $mod+Shift+n exec nautilus
 ## Launch // Notification Viewer // <Super> n ##
