@@ -54,8 +54,6 @@ tasks:
       - [".config/dunst/dunstrc", "config/dunst/dunstrc"]
 
   nvim:
-    deps:
-      - "nvim-bin"
     cmds:
       - - "@package"
         - "nodejs"
@@ -87,6 +85,10 @@ tasks:
   ######################################################
   # Utils
   ######################################################
+
+  redshift:
+    links:
+      - [".config/redshift.con", "config/redshift.conf"]
 
   ######################################################
   # Applications
