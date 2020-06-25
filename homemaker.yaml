@@ -51,6 +51,7 @@ tasks:
       - [".Xresources-regolith", ".Xresources-regolith"]
       - [".config/regolith/i3/config", "config/regolith/i3/config"]
       - [".config/regolith/i3xrocks/config", "config/regolith/i3xrocks/config"]
+      - [".config/regolith/i3xrocks/conf.d", "config/regolith/i3xrocks/conf.d"]
       - [".config/dunst/dunstrc", "config/dunst/dunstrc"]
 
   nvim:
