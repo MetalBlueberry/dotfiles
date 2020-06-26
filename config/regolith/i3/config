@@ -127,9 +127,9 @@ bindsym $mod+Ctrl+9 workspace number $ws19
 
 # Workspace Navigation
 ## Navigate // Next Workspace
-bindsym $mod+w workspace next
+bindsym $mod+e workspace next
 ## Navigate // Previous Workspace 
-bindsym $mod+e workspace prev
+bindsym $mod+w workspace prev
 
 ## Modify // Move Window to Workspace // <Super><Shift> 0..9 ##
 bindsym $mod+Shift+1 move container to workspace number $ws1
