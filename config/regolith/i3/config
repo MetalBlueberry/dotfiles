@@ -207,7 +207,7 @@ bindsym $mod+d exec gnome-control-center display
 ## Launch // File Browser // <Super><Shift> n ##
 bindsym $mod+Shift+n exec nautilus
 ## Launch // Notification Viewer // <Super> n ##
-bindsym $mod+n exec /usr/share/rofication/rofication-gui.py
+bindsym $mod+m exec /usr/share/rofication/rofication-gui.py
 
 # i3-snapshot for load/save current layout
 ## Modify // Save Window Layout // <Super> , ##
@@ -261,6 +261,27 @@ mode "Resize Mode" {
         bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "Resize Mode"
+
+bindsym $mod+n mode "Walk Mode"
+mode "Walk Mode" {
+
+        ## Apps
+        bindsym Return exec /usr/bin/st
+        bindsym Shift+Return exec gtk-launch $(xdg-settings get default-web-browser)
+        bindsym BackSpace split toggle
+
+        bindsym $mod+q [con_id="__focused__"] kill
+
+        ## Walk 
+        bindsym h focus left
+        bindsym j focus down
+        bindsym k focus up
+        bindsym l focus right
+
+        ## Exit 
+        bindsym Escape mode "default"
+        bindsym n mode "default"
+}
 
 ## Other // Toggle this Dialog // <Super><Shift> ? ##
 bindsym $mod+Shift+question exec --no-startup-id /usr/bin/remontoire-toggle
