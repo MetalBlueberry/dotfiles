@@ -1,0 +1,10 @@
+
+i3-wm.binding.fullscreen_toggle: i
+i3-wm.binding.bar_toggle: $mod+Shift+$alt+f
+i3-wm.binding.float_toggle: f
+i3-wm.binding.ws_next: $mod+e
+i3-wm.binding.ws_prev: $mod+w
+i3-wm.binding.wifi: $mod+$alt+w
+i3-wm.program.1: redshift
+i3-wm.binding.move_scratchpad: $mod+Shift+m
+i3-wm.binding.scratchpad: $mod+m
