@@ -47,10 +47,11 @@ tasks:
     cmds:
       - - "@package"
         - "dunst"
+        - "regolith-st"
+        - "regolith-look-ayu-mirage"
     links:
-      - [".Xresources-regolith", ".Xresources-regolith"]
+      - [".config/regolith/Xresources", "config/regolith/Xresources"]
       - [".config/regolith/i3/config", "config/regolith/i3/config"]
-      - [".config/regolith/i3xrocks/config", "config/regolith/i3xrocks/config"]
       - [".config/regolith/i3xrocks/conf.d", "config/regolith/i3xrocks/conf.d"]
       - [".config/dunst/dunstrc", "config/dunst/dunstrc"]
 
