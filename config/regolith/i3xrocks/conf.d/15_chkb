@@ -1,0 +1,6 @@
+# chkb
+[chkb]
+# interval= 1
+# command= curl http://localhost:9989/status
+interval=persist
+command= tail -f -n 0 /tmp/chkb/layout.tmp
