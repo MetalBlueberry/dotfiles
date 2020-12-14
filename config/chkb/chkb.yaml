@@ -1,0 +1,109 @@
+layers:
+  base:
+    keyMap:
+      KEY_LEFTSHIFT:
+        Tap:
+          - action: ChangeLayer
+            layerName: numpad
+      KEY_CAPSLOCK:
+        Tap:
+          - action: ChangeLayer
+            layerName: control
+        Map:
+          - keyCode: KEY_LEFTMETA
+      KEY_RIGHTSHIFT:
+        Tap:
+          - action: ChangeLayer
+            layerName: arrows
+
+  control:
+    onMiss:
+      - action: ChangeLayer
+        layerName: base
+      - action: Map
+    keyMap:
+      KEY_CAPSLOCK:
+        Tap:
+          - action: ChangeLayer
+            layerName: base
+        Map:
+          - keyCode: KEY_LEFTMETA
+      KEY_SEMICOLON:
+        Map:
+          - keyCode: KEY_KPENTER
+          - action: ChangeLayer
+            layerName: base
+      KEY_J:
+        Map:
+          - keyCode: KEY_BACKSPACE
+      KEY_D:
+        Map:
+          - keyCode: KEY_ESC
+          - action: ChangeLayer
+            layerName: base
+  arrows:
+    onMiss:
+      - action: ChangeLayer
+        layerName: base
+      - action: Map
+    keyMap:
+      KEY_RIGHTSHIFT:
+        Map:
+          - keyCode: KEY_RIGHTSHIFT
+        Tap:
+          - action: ChangeLayer
+            layerName: base
+      KEY_J:
+        Map: 
+          - keyCode: "KEY_DOWN"
+      KEY_K:
+        Map: 
+          - keyCode: "KEY_UP"
+      KEY_H:
+        Map: 
+          - keyCode: "KEY_LEFT"
+      KEY_L:
+        Map: 
+          - keyCode: "KEY_RIGHT"
+  numpad:
+    onMiss:
+      - action: ChangeLayer
+        layerName: base
+      - action: Map
+    keyMap:
+      KEY_LEFTSHIFT:
+        Map:
+          - keyCode: KEY_LEFTSHIFT
+        Tap:
+          - action: ChangeLayer
+            layerName: base
+      KEY_U:
+        Map:
+          - keyCode: KEY_7
+      KEY_I:
+        Map:
+          - keyCode: KEY_8
+      KEY_O:
+        Map:
+          - keyCode: KEY_9
+      KEY_J:
+        Map:
+          - keyCode: KEY_4
+      KEY_K:
+        Map:
+          - keyCode: KEY_5
+      KEY_L:
+        Map:
+          - keyCode: KEY_6
+      KEY_M:
+        Map:
+          - keyCode: KEY_1
+      KEY_COMMA:
+        Map:
+          - keyCode: KEY_2
+      KEY_DOT:
+        Map:
+          - keyCode: KEY_3
+      KEY_SEMICOLON:
+        Map:
+          - keyCode: KEY_ENTER
