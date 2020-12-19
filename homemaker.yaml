@@ -84,6 +84,10 @@ tasks:
       - [".config/fish/fish_variables", "config/fish/fish_variables"]
       - [".config/fish/functions", "config/fish/functions"]
 
+  chkb:
+    links:
+      - [".config/chkb/chkb.yaml", "config/chkb/chkb.yaml"]
+
   ######################################################
   # Utils
   ######################################################
