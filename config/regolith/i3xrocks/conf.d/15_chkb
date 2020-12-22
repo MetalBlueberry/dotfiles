@@ -4,4 +4,4 @@
 # command= curl http://localhost:9989/status
 interval=repeat
 # command= tail -f -n 0 /tmp/chkb/layout.tmp
-command= inotifywait -qq -e modify ~/.chkb_layout ; tail -1 ~/.chkb_layout
+command= inotifywait -qq -e modify ~/.chkb_layout && tail -1 ~/.chkb_layout
