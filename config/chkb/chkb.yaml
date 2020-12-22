@@ -11,6 +11,15 @@ layers:
             layerName: control
         Map:
           - keyCode: KEY_LEFTMETA
+      KEY_SPACE:
+        Map:
+          - action: Nil
+        Tap:
+          - action: Tap
+            keyCode: KEY_SPACE
+        Hold:
+          - action: ChangeLayer
+            layerName: symbols
       KEY_RIGHTSHIFT:
         Tap:
           - action: ChangeLayer
@@ -65,6 +74,25 @@ layers:
       KEY_L:
         Map: 
           - keyCode: "KEY_RIGHT"
+  symbols:
+    onMiss:
+      - action: ChangeLayer
+        layerName: base
+      - action: Map
+    keyMap:
+      KEY_SPACE:
+        Up:
+          - action: ChangeLayer
+            layerName: base
+          - action: Map
+      KEY_I:
+        Map:
+          - action: Down
+            keyCode: KEY_LEFTSHIFT
+          - keyCode: KEY_8
+          - action: Up
+            keyCode: KEY_LEFTSHIFT
+    
   numpad:
     onMiss:
       - action: ChangeLayer
@@ -107,3 +135,4 @@ layers:
       KEY_SEMICOLON:
         Map:
           - keyCode: KEY_ENTER
+
