@@ -14,15 +14,6 @@ layers:
       KEY_INSERT:
         Map:
           - keyCode: KEY_HOME
-      # KEY_SPACE:
-      #   Map:
-      #     - action: Nil
-      #   Tap:
-      #     - action: Tap
-      #       keyCode: KEY_SPACE
-      #   Hold:
-      #     - action: ChangeLayer
-      #       layerName: symbols
       KEY_RIGHTSHIFT:
         Tap:
           - action: ChangeLayer
