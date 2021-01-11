@@ -11,15 +11,18 @@ layers:
             layerName: control
         Map:
           - keyCode: KEY_LEFTMETA
-      KEY_SPACE:
+      KEY_INSERT:
         Map:
-          - action: Nil
-        Tap:
-          - action: Tap
-            keyCode: KEY_SPACE
-        Hold:
-          - action: ChangeLayer
-            layerName: symbols
+          - keyCode: KEY_HOME
+      # KEY_SPACE:
+      #   Map:
+      #     - action: Nil
+      #   Tap:
+      #     - action: Tap
+      #       keyCode: KEY_SPACE
+      #   Hold:
+      #     - action: ChangeLayer
+      #       layerName: symbols
       KEY_RIGHTSHIFT:
         Tap:
           - action: ChangeLayer
