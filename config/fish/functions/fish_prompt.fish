@@ -79,6 +79,11 @@ function fish_prompt
     test -n "$prompt_git"
     and _nim_prompt_wrapper $retc G $prompt_git
 
+    # set docker_context (docker context ls --format "{{if .Current }}{{.Name}}{{end}}" | grep -v -e '^$'^C)
+    set docker_context $DOCKER_CONTEXT
+    test -n "$docker_context"
+    and _nim_prompt_wrapper $retc D $docker_context
+
     # Battery status
     type -q acpi
     and test (acpi -a 2> /dev/null | string match -r off)
