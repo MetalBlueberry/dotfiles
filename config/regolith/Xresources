@@ -7,3 +7,4 @@ i3-wm.binding.wifi: Alt+w
 i3-wm.program.1: /usr/bin/redshift
 i3-wm.binding.move_scratchpad: Shift+m
 i3-wm.binding.scratchpad: m
+i3xrocks.todo.uncompleted: true
