@@ -217,7 +217,7 @@ bindsym $mod+$i3-wm.binding.next_free exec --no-startup-id /usr/share/i3xrocks/n
 
 ## Navigate // Scratchpad // <><Ctrl> a ##
 set_from_resource $i3-wm.binding.scratchpad i3-wm.binding.scratchpad Ctrl+a
-bindsym $mod+$i3-wm.binding.scratchpad scratchpad show, resize set 90 ppt 90 ppt, move position center
+bindsym $mod+$i3-wm.binding.scratchpad scratchpad show
 
 ###############################################################################
 # Window and Workspace Configuration
@@ -278,6 +278,7 @@ bindsym $mod+$i3-wm.binding.float_toggle floating toggle
 ## Modify // Move to Scratchpad // <><Ctrl> m ##
 set_from_resource $i3-wm.binding.move_scratchpad i3-wm.binding.move_scratchpad Ctrl+m
 bindsym $mod+$i3-wm.binding.move_scratchpad move to scratchpad
+bindsym $mod+Ctrl+m resize set 95 ppt 95 ppt, move position center
 
 ## Modify // Tile/Float Focus Toggle // <><Shift> t ##
 set_from_resource $i3-wm.binding.focus_toggle i3-wm.binding.focus_toggle Shift+t
