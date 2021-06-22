@@ -665,5 +665,6 @@ exec --no-startup-id $i3-wm.program.3
 
 
 # bindsym $mod+p exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e 'td --interactive'"
-bindsym $mod+p exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e 'fish -c tdg' "
+# bindsym $mod+p exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e 'fish -c tdg' "
+bindsym $mod+p exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e 'fish -c note' "
  
