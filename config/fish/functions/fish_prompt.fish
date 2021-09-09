@@ -4,7 +4,7 @@ function fish_prompt
     else
         set retc green
     end
-	
+
     # - green lines if the last return command is OK, red otherwise
     # - your user name, in red if root or yellow otherwise
     # - your hostname, in cyan if ssh or blue otherwise
@@ -46,7 +46,7 @@ function fish_prompt
         set_color -o green
         echo -n ']'
     end
-    
+
 
     set_color $retc
     echo -n '┬─'
@@ -83,6 +83,18 @@ function fish_prompt
     set docker_context $DOCKER_CONTEXT
     test -n "$docker_context"
     and _nim_prompt_wrapper $retc D $docker_context
+
+    set aws_env $AWS_ENVIRONMENT
+    test -n "$aws_env"
+    and _nim_prompt_wrapper $retc AWS $aws_env
+
+    set f3 $F3_VERSION
+    test -n "$f3"
+    and _nim_prompt_wrapper $retc F3 $f3
+
+    set kubectl (kubectl config current-context)
+    test -n "$kubectl"
+    and _nim_prompt_wrapper $retc ctx $kubectl
 
     # Battery status
     type -q acpi
