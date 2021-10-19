@@ -499,6 +499,12 @@ mode "Resize Mode" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
+
+        ## Quick positions
+        bindsym $mod+s move position center, resize set height 35 ppt, resize set width 40 ppt
+        bindsym $mod+c move position 60 ppt 65 ppt, resize set height 35 ppt, resize set width 40 ppt
+        bindsym $mod+e move position 60 ppt 0 ppt, resize set height 35 ppt, resize set width 40 ppt
+
 }
 bindsym $mod+r mode "Resize Mode"
 
@@ -667,4 +673,4 @@ exec --no-startup-id $i3-wm.program.3
 # bindsym $mod+p exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e 'td --interactive'"
 # bindsym $mod+p exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e 'fish -c tdg' "
 bindsym $mod+p exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e 'fish -c note' "
- 
+bindsym $mod+$alt+w exec "/usr/bin/fish -c 'screenshot'"

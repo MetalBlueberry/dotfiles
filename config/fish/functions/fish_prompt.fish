@@ -90,7 +90,7 @@ function fish_prompt
 
     set f3 $F3_VERSION
     test -n "$f3"
-    and _nim_prompt_wrapper $retc F3 $f3
+    and _nim_prompt_wrapper $retc F3 (f3session)
 
     set kubectl (kubectl config current-context)
     test -n "$kubectl"

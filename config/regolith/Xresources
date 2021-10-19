@@ -8,3 +8,5 @@ i3-wm.program.1: /usr/bin/redshift
 i3-wm.binding.move_scratchpad: Shift+m
 i3-wm.binding.scratchpad: m
 i3xrocks.todo.uncompleted: true
+i3-wm.program.1: /usr/bin/slack -u
+i3-wm.program.2: /usr/bin/zoom
