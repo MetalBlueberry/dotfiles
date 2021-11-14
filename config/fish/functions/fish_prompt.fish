@@ -92,9 +92,11 @@ function fish_prompt
     test -n "$f3"
     and _nim_prompt_wrapper $retc F3 (f3session)
 
-    set kubectl (kubectl config current-context)
-    test -n "$kubectl"
-    and _nim_prompt_wrapper $retc ctx $kubectl
+    if type -q kubectl
+        set kubectl (kubectl config current-context | echo "")
+        test -n "$kubectl"
+        and _nim_prompt_wrapper $retc ctx $kubectl
+    end
 
     # Battery status
     type -q acpi
