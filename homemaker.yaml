@@ -49,6 +49,7 @@ tasks:
         - "dunst"
         - "regolith-st"
         - "regolith-look-ayu-mirage"
+      - ["regolith-look", "set", "ayu-mirage"]
     links:
       - [".config/regolith/Xresources", "config/regolith/Xresources"]
       - [".config/regolith/i3/config", "config/regolith/i3/config"]
@@ -110,7 +111,7 @@ tasks:
     rejects:
       - ["which", "go"]
     envs:
-      - ["GO_VERSION", "1.13"]
+      - ["GO_VERSION", "1.17.3"]
       - ["OS", "linux"]
       - ["ARCH", "amd64"]
       - ["DOWNLOAD_DIR", "Downloads"]
@@ -141,6 +142,19 @@ tasks:
           "https://github.com/neovim/neovim/releases/download/v0.3.8/nvim.appimage",
         ]
       - ["chmod", "+x", ".local/bin/nvim"]
+
+  fzf:
+    rejects: 
+      - ["which", "fzf"]
+    cmds:
+      - ["git","clone","--depth","1","https://github.com/junegunn/fzf.git","~/.fzf"]
+      - ["~/.fzf/install"]
+
+  git:
+    cmds:
+      - ["@package","git"]
+      - ["git","config","--global","user.email","metalblueberry@gmail.com"]
+      - ["git","config","--global","user.name","metalblueberry"]
 
   fish-bin__uninstall:
     accepts:
