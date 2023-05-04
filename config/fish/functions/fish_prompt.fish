@@ -79,6 +79,12 @@ function fish_prompt
     test -n "$prompt_git"
     and _nim_prompt_wrapper $retc G $prompt_git
 
+    if test $CMD_DURATION -ge "20000"
+        notify-send  "$history[1] done"
+        paplay /usr/share/sounds/freedesktop/stereo/complete.oga
+        set CMD_DURATION 0
+    end
+
     # set docker_context (docker context ls --format "{{if .Current }}{{.Name}}{{end}}" | grep -v -e '^$'^C)
     set docker_context $DOCKER_CONTEXT
     test -n "$docker_context"
