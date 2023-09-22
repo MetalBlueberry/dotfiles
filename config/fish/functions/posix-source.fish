@@ -1,7 +1,8 @@
 function posix-source
 	for i in (cat $argv | grep -v "^#" | grep =)
-        echo $i
 		set arr (echo $i |tr = \n)
-  		set -gx $arr[1] $arr[2]
+        echo $arr[1] = (string join '=' $arr[2..-1])
+
+  		set -gx $arr[1] (string join '=' $arr[2..-1])
 	end
 end

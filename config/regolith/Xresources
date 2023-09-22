@@ -4,9 +4,9 @@ i3-wm.binding.float_toggle: f
 i3-wm.binding.ws_next: e
 i3-wm.binding.ws_prev: w
 i3-wm.binding.wifi: Alt+w
-i3-wm.program.1: /usr/bin/redshift
 i3-wm.binding.move_scratchpad: Shift+m
 i3-wm.binding.scratchpad: m
 i3xrocks.todo.uncompleted: true
 i3-wm.program.1: /usr/bin/slack -u
 i3-wm.program.2: /usr/bin/zoom
+i3xrocks.memory.display: used

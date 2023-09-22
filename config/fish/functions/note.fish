@@ -1,5 +1,5 @@
 function note
     set basedir ~/.notes
-    set category (ls $basedir | fzf)
-    vim $basedir/$category
+    set category (find $basedir/**.md -type f | fzf)
+    code $basedir -g $category
 end
