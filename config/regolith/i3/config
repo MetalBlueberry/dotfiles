@@ -451,7 +451,8 @@ floating_maximum_size -1 x -1
 for_window [class="floating_window"] floating enable
 
 set_from_resource $i3-wm.workspace.auto_back_and_forth i3-wm.workspace.auto_back_and_forth no
-workspace_auto_back_and_forth $i3-wm.workspace.auto_back_and_forth
+# workspace_auto_back_and_forth $i3-wm.workspace.auto_back_and_forth
+workspace_auto_back_and_forth yes
 
 ###############################################################################
 # Window Resize and Gaps
