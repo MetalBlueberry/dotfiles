@@ -94,10 +94,11 @@ function fish_prompt
     test -n "$aws_env"
     and _nim_prompt_wrapper $retc AWS $aws_env
 
+    if type -q f3
     set f3 (f3session)
     test -n "$f3"
     and _nim_prompt_wrapper $retc F3 (f3session)
-
+    end
     # Battery status
     type -q acpi
     and test (acpi -a 2> /dev/null | string match -r off)
