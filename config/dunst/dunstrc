@@ -200,6 +200,8 @@
     # automatically after a crash.
     startup_notification = true
 
+
+
     ### Legacy
 
     # Use the Xinerama extension instead of RandR for multi-monitor support.
@@ -211,6 +213,7 @@
     # is connected or disconnected which might break follow mode if the screen
     # layout changes.
     force_xinerama = false
+
 
 # Experimental features that may or may not work correctly. Do not expect them
 # to have a consistent behaviour across releases.
@@ -326,3 +329,10 @@
 #    urgency = normal
 #
 # vim: ft=cfg
+
+
+
+[slack]
+    appname = Slack
+    summary = "new message #lon-production-errors-stream"
+    script = /home/victor/production-notification.sh

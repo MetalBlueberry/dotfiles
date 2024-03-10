@@ -1,6 +1,6 @@
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_COMPLETE 0
-set -x EDITOR nvim
+set -x EDITOR vim
 set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew";
 set -gx HOMEBREW_CELLAR "/home/linuxbrew/.linuxbrew/Cellar";
 set -gx HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew";
@@ -12,3 +12,5 @@ set -gx REQUESTS_CA_BUNDLE /etc/ssl/certs/ca-certificates.crt
 set -gx AWS_CA_BUNDLE /etc/ssl/certs/ca-certificates.crt
 set -gx SSL_CERT_FILE /etc/ssl/certs/ca-certificates.crt
 set -gx NODE_EXTRA_CA_CERTS /etc/ssl/certs/ca-certificates.crt
+
+set -gx OFFICE "https://form3.zoom.us/j/92341007502?pwd=bGlHTmprREY2YWhPTUNlcG9JMERMZz09"

@@ -94,15 +94,9 @@ function fish_prompt
     test -n "$aws_env"
     and _nim_prompt_wrapper $retc AWS $aws_env
 
-    set f3 $F3_VERSION
+    set f3 (f3session)
     test -n "$f3"
     and _nim_prompt_wrapper $retc F3 (f3session)
-
-    if type -q kubectl
-        set kubectl (kubectl config current-context | echo "")
-        test -n "$kubectl"
-        and _nim_prompt_wrapper $retc ctx $kubectl
-    end
 
     # Battery status
     type -q acpi
