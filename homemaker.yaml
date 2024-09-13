@@ -56,6 +56,16 @@ tasks:
       - [".config/regolith/i3xrocks/conf.d", "config/regolith/i3xrocks/conf.d"]
       - [".config/dunst/dunstrc", "config/dunst/dunstrc"]
 
+  regolith3:
+    cmds:
+      - - "@package"
+        - "dunst"
+        - "regolith-look-ayu-mirage"
+    links:
+      - [".config/regolith3/Xresources", "config/regolith3/Xresources"]
+      - [".config/dunst/dunstrc", "config/dunst/dunstrc"]
+      - [".config/regolith3/i3/config.d", "config/regolith3/i3/config.d"]
+
   nvim:
     cmds:
       - - "@package"
@@ -144,17 +154,24 @@ tasks:
       - ["chmod", "+x", ".local/bin/nvim"]
 
   fzf:
-    rejects: 
+    rejects:
       - ["which", "fzf"]
     cmds:
-      - ["git","clone","--depth","1","https://github.com/junegunn/fzf.git","~/.fzf"]
-      - ["~/.fzf/install"]
+      - [
+          "git",
+          "clone",
+          "--depth",
+          "1",
+          "https://github.com/junegunn/fzf.git",
+          ".fzf",
+        ]
+      - [".fzf/install"]
 
   git:
     cmds:
-      - ["@package","git"]
-      - ["git","config","--global","user.email","metalblueberry@gmail.com"]
-      - ["git","config","--global","user.name","metalblueberry"]
+      - ["@package", "git"]
+      - ["git", "config", "--global", "user.email", "metalblueberry@gmail.com"]
+      - ["git", "config", "--global", "user.name", "metalblueberry"]
 
   fish-bin__uninstall:
     accepts:
@@ -172,6 +189,4 @@ tasks:
       - ["sudo", "apt-get", "install", "-y", "fish"]
       - ["@bash", "echo /usr/bin/fish | sudo tee -a /etc/shells"]
       - ["@bash", "echo $PASS | chsh $USER -s /usr/bin/fish"]
-      - ["@bash", "curl -L https://get.oh-my.fish | fish"]
-      - ["@fish", "omf install https://github.com/jethrokuan/fzf"]
       - [".fzf/install", "--all"]

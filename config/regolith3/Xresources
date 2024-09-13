@@ -1,0 +1,45 @@
+wm.binding.fullscreen_toggle: i
+wm.binding.bar_toggle: $mod+Shift+$alt+f
+wm.binding.float_toggle: f
+wm.binding.ws_next: e
+wm.binding.ws_prev: w
+wm.workspace.auto_back_and_forth: yes
+wm.binding.wifi: Alt+w
+wm.binding.move_scratchpad: Shift+m
+wm.binding.scratchpad: m
+wm.program.1: /usr/bin/slack -u
+wm.program.2: /usr/bin/zoom
+regolith.wallpaper.file: /usr/share/backgrounds/Province_of_the_south_of_france_by_orbitelambda.jpg
+regolith.lockscreen.wallpaper.file: /usr/share/backgrounds/Province_of_the_south_of_france_by_orbitelambda.jpg
+regolith.look.path: /usr/share/regolith-look/ayu-mirage
+
+
+## fix gaps 
+## Border configuration
+wm.window.border.size: 3
+wm.resize.small: 1
+wm.resize.large: 4
+
+i3xrocks.date.format2: %Y-%m-%d %H:%M
+i3xrocks.todo.uncompleted: true
+i3xrocks.memory.display: free
+i3xrocks.label.color:	#73d0ff
+i3xrocks.value.color:	#ffffff
+
+## Use ubuntu font 
+gnome.terminal.font: Ubuntu Mono 12
+gtk.document_font_name:	Sans 12
+gtk.font_name: Ubuntu Mono 12
+gtk.monospace_font_name: Ubuntu Mono 12
+i3xrocks.value.font: Ubuntu Mono 12
+wm.bar.font: Ubuntu Mono 12
+
+## Make sure I can read workspace text
+wm.bar.workspace.active.text.color:	#ffffff
+wm.bar.workspace.focused.text.color:	#ffffff
+wm.bar.workspace.inactive.text.color:	#ffffff
+wm.bar.workspace.urgent.text.color:	#f88731
+
+## quick notes
+wm.bindsym.1: p
+wm.bindsym.program.1: /usr/bin/gnome-terminal --class=floating_window -e 'fish -c note'

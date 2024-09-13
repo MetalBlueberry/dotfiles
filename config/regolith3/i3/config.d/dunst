@@ -1,0 +1,3 @@
+bindsym ctrl+period exec --no-startup-id "dunstctl close"
+bindsym ctrl+grave exec --no-startup-id "dunstctl history-pop"
+bindsym ctrl+Shift+period exec --no-startup-id "dunstctl context"
