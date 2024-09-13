@@ -8,7 +8,7 @@ wm.binding.wifi: Alt+w
 wm.binding.move_scratchpad: Shift+m
 wm.binding.scratchpad: m
 wm.program.1: /usr/bin/slack -u
-wm.program.2: /usr/bin/zoom
+## wm.program.2: /usr/bin/zoom
 regolith.wallpaper.file: /usr/share/backgrounds/Province_of_the_south_of_france_by_orbitelambda.jpg
 regolith.lockscreen.wallpaper.file: /usr/share/backgrounds/Province_of_the_south_of_france_by_orbitelambda.jpg
 regolith.look.path: /usr/share/regolith-look/ayu-mirage
@@ -21,7 +21,6 @@ wm.resize.small: 1
 wm.resize.large: 4
 
 i3xrocks.date.format2: %Y-%m-%d %H:%M
-i3xrocks.todo.uncompleted: true
 i3xrocks.memory.display: free
 i3xrocks.label.color:	#73d0ff
 i3xrocks.value.color:	#ffffff
@@ -31,7 +30,7 @@ gnome.terminal.font: Ubuntu Mono 12
 gtk.document_font_name:	Sans 12
 gtk.font_name: Ubuntu Mono 12
 gtk.monospace_font_name: Ubuntu Mono 12
-i3xrocks.value.font: Ubuntu Mono 12
+i3xrocks.value.font: Ubuntu Mono 14
 wm.bar.font: Ubuntu Mono 12
 
 ## Make sure I can read workspace text
