@@ -80,10 +80,15 @@ function fish_prompt
     and _nim_prompt_wrapper $retc G $prompt_git
 
     if test $CMD_DURATION -ge "20000"
-        notify-send  "$history[1] done"
-        paplay /usr/share/sounds/freedesktop/stereo/complete.oga
+        fish -c "notify-focus $WINDOW_ID history[1] finished" & disown
+        paplay /usr/share/sounds/freedesktop/stereo/complete.oga & disown
         set CMD_DURATION 0
     end
+    ## Set the window ID to the currect active window that most likely
+    ## will be the one you just opened. 
+    ## Then recover it to send it to the notification as an action
+    ## Not bullet proof... but works most of the time
+    set -g WINDOW_ID (xdotool getactivewindow)
 
     # set docker_context (docker context ls --format "{{if .Current }}{{.Name}}{{end}}" | grep -v -e '^$'^C)
     set docker_context $DOCKER_CONTEXT
@@ -94,11 +99,6 @@ function fish_prompt
     test -n "$aws_env"
     and _nim_prompt_wrapper $retc AWS $aws_env
 
-    if type -q f3
-    set f3 (f3session)
-    test -n "$f3"
-    and _nim_prompt_wrapper $retc F3 (f3session)
-    end
     # Battery status
     type -q acpi
     and test (acpi -a 2> /dev/null | string match -r off)
