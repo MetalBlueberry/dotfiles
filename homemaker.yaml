@@ -189,4 +189,3 @@ tasks:
       - ["sudo", "apt-get", "install", "-y", "fish"]
       - ["@bash", "echo /usr/bin/fish | sudo tee -a /etc/shells"]
       - ["@bash", "echo $PASS | chsh $USER -s /usr/bin/fish"]
-      - [".fzf/install", "--all"]
