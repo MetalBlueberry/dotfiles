@@ -9,8 +9,8 @@ wm.binding.move_scratchpad: Shift+m
 wm.binding.scratchpad: m
 wm.program.1: /usr/bin/slack -u
 ## wm.program.2: /usr/bin/zoom
-regolith.wallpaper.file: /usr/share/backgrounds/Province_of_the_south_of_france_by_orbitelambda.jpg
-regolith.lockscreen.wallpaper.file: /usr/share/backgrounds/Province_of_the_south_of_france_by_orbitelambda.jpg
+regolith.wallpaper.file: ~/Pictures/fox.jpg
+regolith.lockscreen.wallpaper.file: ~/Pictures/fox.jpg
 regolith.look.path: /usr/share/regolith-look/ayu-mirage
 
 
