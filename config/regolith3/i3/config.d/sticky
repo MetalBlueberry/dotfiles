@@ -1,0 +1,2 @@
+## Modify // Sticky // <Mod> <Shift> f ##
+bindsym $mod+Shift+f sticky toggle
