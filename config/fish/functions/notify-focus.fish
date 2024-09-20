@@ -18,7 +18,6 @@ function notify-focus
     case "default"
         # Nothing
     case "focus"
-    	echo "$WINDOW_ID"
     	# Display the notification
         xdotool windowactivate $WINDOW_ID
     case "2"
