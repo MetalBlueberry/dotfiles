@@ -1,0 +1,2 @@
+## Screenshot // cut // <Mod> <alt> w ##
+bindsym $mod+$alt+w exec --no-startup-id "fish -c screenshot"
