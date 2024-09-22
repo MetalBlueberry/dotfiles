@@ -65,6 +65,7 @@ tasks:
       - [".config/regolith3/Xresources", "config/regolith3/Xresources"]
       - [".config/dunst/dunstrc", "config/dunst/dunstrc"]
       - [".config/regolith3/i3/config.d", "config/regolith3/i3/config.d"]
+      - [".config/regolith3/picom/config", "config/regolith3/picom/config"]
       - ["Pictures/fox.jpg", "images/fox.jpg"]
 
   nvim:
@@ -189,4 +190,4 @@ tasks:
       - ["sudo", "apt-get", "update", "-y"]
       - ["sudo", "apt-get", "install", "-y", "fish"]
       - ["@bash", "echo /usr/bin/fish | sudo tee -a /etc/shells"]
-      - ["@bash", "echo $PASS | chsh $USER -s /usr/bin/fish"]
+      # - ["@bash", "echo $PASS | chsh $USER -s /usr/bin/fish"]

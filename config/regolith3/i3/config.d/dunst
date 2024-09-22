@@ -4,3 +4,6 @@ bindsym ctrl+space exec --no-startup-id "dunstctl close"
 bindsym ctrl+grave exec --no-startup-id "dunstctl history-pop"
 ## Dunst // Context // <ctrl> <Shift >. ##
 bindsym ctrl+Shift+period exec --no-startup-id "dunstctl context"
+
+for_window [title="^zoom$"] floating enable
+
