@@ -1,5 +1,5 @@
-## Dunst // Close // <ctrl> space ##
-bindsym ctrl+space exec --no-startup-id "dunstctl close"
+## Dunst // Close // <ctrl> <shift> space ##
+bindsym ctrl+Shift+space exec --no-startup-id "dunstctl close"
 ## Dunst // Pop // <ctrl> ` ##
 bindsym ctrl+grave exec --no-startup-id "dunstctl history-pop"
 ## Dunst // Context // <ctrl> <Shift >. ##
