@@ -9,7 +9,6 @@ function notify-focus
     set WINDOW_ID $argv[1]
     set MESSAGE $argv[2..-1]  # Get all remaining arguments as the message
 
-    echo "$WINDOW_ID"
     # Display the notification
     set ACTION (dunstify --action="focus,focus" "$MESSAGE")
 
