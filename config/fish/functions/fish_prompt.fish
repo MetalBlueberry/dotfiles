@@ -95,6 +95,11 @@ function fish_prompt
     test -n "$docker_context"
     and _nim_prompt_wrapper $retc D $docker_context
 
+    type -q "kubectl" 
+    and set kubectl_context (kubectl config current-context)
+    test -n "$kubectl_context"
+    and _nim_prompt_wrapper $retc k8s $kubectl_context
+
     set aws_env $AWS_ENVIRONMENT
     test -n "$aws_env"
     and _nim_prompt_wrapper $retc AWS $aws_env
