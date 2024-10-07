@@ -80,7 +80,7 @@ function fish_prompt
     and _nim_prompt_wrapper $retc G $prompt_git
 
     if test $CMD_DURATION -ge "20000"
-        fish -c "notify-focus $WINDOW_ID $history[1] finished" & disown
+        fish -c "notify-focus $WINDOW_ID $history[1]" & disown
         paplay /usr/share/sounds/freedesktop/stereo/complete.oga & disown
         set CMD_DURATION 0
     end
@@ -89,6 +89,7 @@ function fish_prompt
     ## Then recover it to send it to the notification as an action
     ## Not bullet proof... but works most of the time
     set -g WINDOW_ID (xdotool getactivewindow)
+
 
     # set docker_context (docker context ls --format "{{if .Current }}{{.Name}}{{end}}" | grep -v -e '^$'^C)
     set docker_context $DOCKER_CONTEXT
@@ -100,9 +101,10 @@ function fish_prompt
     test -n "$kubectl_context"
     and _nim_prompt_wrapper $retc k8s $kubectl_context
 
-    set aws_env $AWS_ENVIRONMENT
-    test -n "$aws_env"
-    and _nim_prompt_wrapper $retc AWS $aws_env
+    set aws_env $AWS_PROFILE
+    test -n "$AWS_PROFILE"
+    and _nim_prompt_wrapper $retc AWS $AWS_PROFILE
+
 
     # Battery status
     type -q acpi

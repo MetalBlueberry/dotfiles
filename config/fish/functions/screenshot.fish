@@ -1,3 +1,3 @@
 function screenshot
-    gnome-screenshot -acf /tmp/test && cat /tmp/test | xclip -i -selection clipboard -target image/png
+    gnome-screenshot -acf /tmp/test.png && cat /tmp/test.png | xclip -i -selection clipboard -target image/png
 end
