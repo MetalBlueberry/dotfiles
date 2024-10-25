@@ -80,7 +80,8 @@ function fish_prompt
     and _nim_prompt_wrapper $retc G $prompt_git
 
     if test $CMD_DURATION -ge "20000"
-        fish -c "notify-focus $WINDOW_ID \"$history[1]\"" & disown
+        set lastcmd (string escape -- $history[1])
+        fish -c "notify-focus $WINDOW_ID $lastcmd" & disown
         paplay /usr/share/sounds/freedesktop/stereo/complete.oga & disown
         set CMD_DURATION 0
     end
