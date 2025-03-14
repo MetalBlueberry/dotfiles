@@ -1,0 +1,7 @@
+exec --no-startup-id /home/victor/Applications/greenclip daemon>/dev/null
+
+## greenclip // find // <mod> <v>. ##
+bindsym $mod+v exec --no-startup-id rofi -modi "clipboard:/home/victor/Applications/greenclip print" -show clipboard
+
+## greenclip // edit // <mod> <y>. ##
+bindsym $mod+y exec --no-startup-id /usr/bin/gnome-terminal --class=floating_window -e 'fish -c edit-clipboard'
