@@ -13,6 +13,7 @@ regolith.wallpaper.file: ~/Pictures/fox.jpg
 regolith.lockscreen.wallpaper.file: ~/Pictures/fox.jpg
 regolith.look.path: /usr/share/regolith-look/ayu-mirage
 
+wm.binding.split_v: Shift+v
 
 ## fix gaps 
 ## Border configuration
