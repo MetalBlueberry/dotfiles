@@ -1,13 +1,5 @@
 function search-clipboard
-	set -l tmpfile (mktemp)
-
-	greenclip print | grep . | fzf --preview-window right:wrap --preview='echo {} | grep -i --color=always {q}'  > $tmpfile
-
-	# Copy edited content back to clipboard
-	greenclip print (cat $tmpfile)
-	xsel -b | xsel -bi
+	blueclip client list | fzf --bind 'change:first' --preview-window right:wrap --preview 'echo {} | blueclip client print -u' | blueclip client copy -c primary -c clipboard
+	return
 	xsel -b | xsel -pi
-
-	rm $tmpfile
-	
 end

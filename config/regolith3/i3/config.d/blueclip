@@ -1,12 +1,11 @@
-exec --no-startup-id /home/victor/Applications/greenclip daemon>/dev/null
-
-## greenclip // find // <mod> <v>. ##
+## blueclip // find // <mod> <v>. ##
 bindsym $mod+v exec --no-startup-id /usr/bin/gnome-terminal --class=clipboard_window -e 'fish -c search-clipboard'
 
-## greenclip // edit // <mod> <y>. ##
+## blueclip // edit // <mod> <y>. ##
 bindsym $mod+y exec --no-startup-id /usr/bin/gnome-terminal --class=clipboard_window -e 'fish -c edit-clipboard'
 
 for_window [class="clipboard_window"] floating enable
 for_window [class="clipboard_window"] border none
 for_window [class="clipboard_window"] resize set width 2600px height 1500px
 for_window [class="clipboard_window"] move position center
+
