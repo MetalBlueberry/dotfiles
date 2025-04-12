@@ -7,10 +7,8 @@ wm.workspace.auto_back_and_forth: yes
 wm.binding.wifi: Alt+w
 wm.binding.move_scratchpad: Shift+m
 wm.binding.scratchpad: m
-wm.program.1: /usr/bin/slack -u
-## wm.program.2: /usr/bin/zoom
-regolith.wallpaper.file: ~/Pictures/fox.jpg
-regolith.lockscreen.wallpaper.file: ~/Pictures/fox.jpg
+regolith.wallpaper.file: ~/Pictures/autumn.png
+regolith.lockscreen.wallpaper.file: ~/Pictures/autumn.png
 regolith.look.path: /usr/share/regolith-look/ayu-mirage
 
 wm.binding.split_v: Shift+v
