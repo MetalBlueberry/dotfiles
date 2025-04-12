@@ -67,6 +67,7 @@ tasks:
       - [".config/regolith3/i3/config.d", "config/regolith3/i3/config.d"]
       - [".config/regolith3/picom/config", "config/regolith3/picom/config"]
       - ["Pictures/fox.jpg", "images/fox.jpg"]
+      - ["Pictures/autumn.png", "images/autumn.png"]
 
   nvim:
     cmds:
