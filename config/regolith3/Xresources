@@ -29,7 +29,7 @@ gnome.terminal.font: Ubuntu Mono 12
 gtk.document_font_name:	Sans 12
 gtk.font_name: Ubuntu Mono 12
 gtk.monospace_font_name: Ubuntu Mono 12
-i3xrocks.value.font: Ubuntu Mono 14
+i3xrocks.value.font: Ubuntu Mono 12
 wm.bar.font: Ubuntu Mono 12
 
 ## Make sure I can read workspace text
