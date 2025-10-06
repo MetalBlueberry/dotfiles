@@ -115,6 +115,13 @@ function fish_prompt
     # New line
     echo
 
+    # date
+    set_color normal
+        set_color $retc
+        echo -n '│ '
+        set_color white
+        echo (date '+%X')
+
     # Background jobs
     set_color normal
     for job in (jobs)
