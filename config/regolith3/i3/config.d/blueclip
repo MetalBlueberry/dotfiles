@@ -4,6 +4,9 @@ bindsym $mod+v exec --no-startup-id /usr/bin/gnome-terminal --class=clipboard_wi
 ## blueclip // edit // <mod> <y>. ##
 bindsym $mod+y exec --no-startup-id /usr/bin/gnome-terminal --class=clipboard_window -e 'fish -c edit-clipboard'
 
+## blueclip // find // <mod> <Alt> <v>. ##
+bindsym $mod+Mod1+v exec --no-startup-id /usr/bin/gnome-terminal --class=clipboard_window -e 'fish -c clean-clipboard'
+
 for_window [class="clipboard_window"] floating enable
 for_window [class="clipboard_window"] border none
 for_window [class="clipboard_window"] resize set width 2600px height 1500px
