@@ -1,14 +1,17 @@
 wm.binding.fullscreen_toggle: i
-wm.binding.bar_toggle: $mod+Shift+$alt+f
+wm.binding.bar_toggle: $mod+Shift+Mod1+f
 wm.binding.float_toggle: f
 wm.binding.ws_next: e
 wm.binding.ws_prev: w
+wm.binding.wifi: F13
 wm.workspace.auto_back_and_forth: yes
-wm.binding.wifi: Alt+w
 wm.binding.move_scratchpad: Shift+m
 wm.binding.scratchpad: m
-regolith.wallpaper.file: ~/Pictures/autumn.png
-regolith.lockscreen.wallpaper.file: ~/Pictures/autumn.png
+wm.program.1: /snap/bin/slack -u
+wm.program.2: /usr/bin/zoom
+wm.program.3: /home/victor/Applications/activitywatch/aw-qt
+regolith.wallpaper.file: ~/Pictures/winter.png
+regolith.lockscreen.wallpaper.file: ~/Pictures/winter.png
 regolith.look.path: /usr/share/regolith-look/ayu-mirage
 
 wm.binding.split_v: Shift+v
