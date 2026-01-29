@@ -42,7 +42,11 @@ glx-copy-from-front = false;
 # Recommended if it works.
 glx-no-rebind-pixmap = true;
 
-use-damage = true;
+# use-damage causes flickering on NVIDIA + GLX when terminals update rapidly
+# (e.g., fish syntax highlighting). The damage extension reports stale regions.
+# See: https://github.com/yshui/picom/issues/268
+#      https://forums.developer.nvidia.com/t/some-window-titles-and-terminal-outputs-flashes-with-picom-glx-backend/121220
+use-damage = false;
 
 # Additionally use X Sync fence to sync clients' draw calls.
 # Needed on nvidia-drivers with GLX backend for some users.
