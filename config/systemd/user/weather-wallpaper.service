@@ -1,0 +1,6 @@
+[Unit]
+Description=Set wallpaper based on weather
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/fish -c weather-wallpaper

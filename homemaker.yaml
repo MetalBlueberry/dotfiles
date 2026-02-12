@@ -68,6 +68,13 @@ tasks:
       - [".config/regolith3/picom/config", "config/regolith3/picom/config"]
       - ["Pictures/fox.jpg", "images/fox.jpg"]
       - ["Pictures/autumn.png", "images/autumn.png"]
+      - ["Pictures/summer.png", "images/summer.png"]
+      - ["Pictures/winter.png", "images/winter.png"]
+      - ["Pictures/winter_rainy.png", "images/winter_rainy.png"]
+      - ["Pictures/winter_snow.png", "images/winter_snow.png"]
+      - ["Pictures/spring.png", "images/spring.png"]
+      - ["Pictures/spring_rainy.png", "images/spring_rainy.png"]
+      - ["Pictures/spring_windy.png", "images/spring_windy.png"]
 
   nvim:
     cmds:
@@ -97,6 +104,16 @@ tasks:
       - [".config/fish/config.fish", "config/fish/config.fish"]
       - [".config/fish/fish_variables", "config/fish/fish_variables"]
       - [".config/fish/functions", "config/fish/functions"]
+
+  weather-wallpaper:
+    deps:
+      - "fish"
+      - "regolith3"
+    links:
+      - [".config/systemd/user/weather-wallpaper.service", "config/systemd/user/weather-wallpaper.service"]
+      - [".config/systemd/user/weather-wallpaper.timer", "config/systemd/user/weather-wallpaper.timer"]
+    cmdspost:
+      - ["systemctl", "--user", "enable", "--now", "weather-wallpaper.timer"]
 
   chkb:
     links:
