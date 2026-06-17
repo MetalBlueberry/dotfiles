@@ -119,6 +119,13 @@ tasks:
     links:
       - [".config/chkb/chkb.yaml", "config/chkb/chkb.yaml"]
 
+  earlyoom:
+    cmds:
+      - ["@package", "earlyoom"]
+      # /etc/default is outside $HOME, so link it explicitly with sudo
+      - ["sudo", "ln", "-sf", "$HOME/Documents/Projects/dotfiles/config/earlyoom/earlyoom", "/etc/default/earlyoom"]
+      - ["sudo", "systemctl", "restart", "earlyoom"]
+
   ######################################################
   # Utils
   ######################################################
