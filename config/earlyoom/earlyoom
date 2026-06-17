@@ -2,8 +2,9 @@
 # /etc/init.d/earlyoom or by systemd from earlyoom.service.
 
 # Options to pass to earlyoom
-EARLYOOM_ARGS="-r 3600 -m 10 -s 10 -n --prefer '(brave|brave-browser)' --prefer '(gopls)' --prefer '(chrome|chromium|firefox)'
-  --prefer '(code|vscode|cursor)' --avoid '(systemd|dbus|ssh|i3|regolith)'"
+# Only the LAST --prefer / --avoid takes effect (each overwrites the prior),
+# so all preferences must live in a single regex.
+EARLYOOM_ARGS="-r 3600 -m 10 -s 10 -n --prefer '(brave|brave-browser|gopls)' --avoid '(systemd|dbus|ssh|i3|regolith)'"
 
 # Examples:
 
