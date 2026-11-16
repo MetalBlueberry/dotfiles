@@ -68,6 +68,8 @@ tasks:
       - [".config/regolith3/picom/config", "config/regolith3/picom/config"]
       - ["Pictures/fox.jpg", "images/fox.jpg"]
       - ["Pictures/autumn.png", "images/autumn.png"]
+      - ["Pictures/autumn_rainy.png", "images/autumn_rainy.png"]
+      - ["Pictures/autumn_windy.png", "images/autumn_windy.png"]
       - ["Pictures/summer.png", "images/summer.png"]
       - ["Pictures/summer_rainy.png", "images/summer_rainy.png"]
       - ["Pictures/summer_windy.png", "images/summer_windy.png"]
