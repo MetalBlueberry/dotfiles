@@ -192,7 +192,7 @@ detect-transient = true;
 detect-client-leader = true;
 
 # Prevent shadows from drawing across displays.
-xinerama-shadow-crop = true;
+crop-shadow-to-monitor = true;
 
 #################################
 #
@@ -229,7 +229,10 @@ wintypes:
 # Custom opacity for terminal
 opacity-rule = [
   "95:class_g = 'Gnome-terminal' && focused",
-  "90:class_g = 'Gnome-terminal' && !focused"
+  "90:class_g = 'Gnome-terminal' && !focused",
+  "100:class_g = 'zoom'",
+  "100:class_g = 'ZoomWebviewHost'",
+  "100:name ^= 'Meet - '"
 ];
 
 # shadow-exclude = [
